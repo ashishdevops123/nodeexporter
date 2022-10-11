@@ -23,6 +23,7 @@
       ansible.builtin.copy:
         src: /home/ansible/node_exporter-1.4.0.linux-amd64/node_exporter
         dest: /usr/local/bin/
+        remote_src: yes
     -  name: creating a user node_exporter
        user:
          name: node_exporter
