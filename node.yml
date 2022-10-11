@@ -32,7 +32,14 @@
     - name: create a group node_exporter
       group:
         name: node_exporter
-        state: present       
+        state: present  
+    - name: changing ownership of  node_exporter
+      file:
+        path: /usr/local/bin/node_exporter
+        state: file
+        owner: node_exporter
+        group: node_exporter 
+        mode: '0744'          
     - name: copying service file
       template:
         src: nodeexporter.service.j2
